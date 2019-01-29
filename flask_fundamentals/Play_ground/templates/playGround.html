@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>Play Ground</title>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            background-color: {{changecolor}};
+            margin: 20px;
+            display: inline-block;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <h1>Welcome!!</h1>
+    {% for i in range(0,blockNum) %}
+
+    <div class="box" ></div>
+
+
+    {% endfor %}
+</body>
+
+</html>

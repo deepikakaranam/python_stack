@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>Checkerboard</title>
+    <style>
+        .red{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-color: red;
+            padding: 0px;
+        }
+
+        .black {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-color: black;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% for i in range(blocknum): %}
+    <div class="Container">
+        {% for j in range(blocknum) %}
+            {% if i%2 == 0 %}
+                {% if j%2 == 0 %}
+                    <div class="red"></div>
+                {% else %}
+                    <div class="black"></div>
+                {% endif %}
+            {% else %}
+                {% if j % 2 == 0 %}
+                    <div class="black"></div>
+                {% else %}
+                    <div class="red"></div>   
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    {% for row in checkerboard %}
+        <div class="Container">
+        {% for column in row %}
+            <div class="{{ column }}"></div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+
+</body>
+
+</html>

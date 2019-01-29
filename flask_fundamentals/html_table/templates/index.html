@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>HTML Table</title>
+
+</head>
+
+<body>
+
+
+    <table border="2">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Full Name</td>
+        </tr>
+
+        {% for x in users %}
+        <tr>
+            <td>{{x["first_name"]}}</td>
+            <td>{{x['last_name']}}</td>
+            <td>{{x['first_name']}}{{x['last_name']}}</td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<html>
+
+    <head>
+        <title>Dojo checkout</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous">
+        
+    </head>
+
+    <body>
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Thank you for your order!</h1>
+                <p class="lead text-muted">We ordered {{request.form['strawberry'],request.form['Raspberry'],
+                    request.form['Apples']}} items for you and charged your student
+                    account </p>
+                <h1>Your order Info!!</h1>
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fruit Name</th>
+                            <th scope="col">Quantity</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Strawberry</td>
+                            <td>{{request.form['strawberry']}} </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Raspberry</td>
+                            <td>{{request.form['Raspberry']}} </td>
+
+
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Apples</td>
+                            <td>{{request.form['Apples']}}</td>
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+        <div class="row">
+            <div class="col-6">
+                First name :{{request.form['first_name']}}
+            </div>
+            <div class="col-6">
+                Last name:{{request.form['last_name']}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                Student ID:{{request.form['studentid']}}
+            </div>
+        </div>
+
+    </body>
+
+</html>

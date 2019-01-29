@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <title>Dojo Fruit Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+    <header>
+        <h4>make it red</h4>
+        <div class="navbar navbar-dark bg-dark shadow-sm"></div>
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg> -->
+                <strong>Dojo Fruit Store</strong>
+            </a>
+        </div>
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h5 class="text-white h4">Collapsed content</h5>
+                    <span class="text-muted">Toggleable via the navbar brand.</span>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </header>
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Dojo Fruit Store</h1>
+                <p class="lead text-muted">Your dojo decided to buy fruits for all the students! Please use this app to
+                    tell us what you would like to have! once we get your order,we'll change your student account
+                    automatically.</p>
+                <p>
+                    Dojo fruit store is proudly built using Flask.
+                </p>
+                <p>
+                    <a href="#" class="btn btn-primary my-2">Order Fruits From The Store</a>
+
+                </p>
+            </div>
+        </section>
+    </main>
+    <table class="table table-striped">
+        <form action='/checkout' method='post'>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fruit Name</th>
+                    <th scope="col">Quantity</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Strawberry</td>
+                    <td>
+                        <select name='strawberry'>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Raspberry</td>
+                    <td>
+                        <select name='Raspberry'>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Apples</td>
+                    <td>
+                        <select name='Apples'>
+                            <option value='0'>0</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
+                    </td>
+
+                </tr>
+
+            </tbody>
+            <form>
+    </table>
+
+    <div class="row">
+        <div class="col-6">
+            First name <input type="text" name='first_name' class="form-control" placeholder="First name">
+        </div>
+        <div class="col-6">
+            Last name<input type="text" name='last_name' class="form-control" placeholder="Last name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Student ID<input type="text" name='studentid' class="form-control" placeholder="Student ID">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Buy Fruits</button>
+    </form>
+
+</body>
+
+</html>

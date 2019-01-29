@@ -1,1 +1,3 @@
 myEnvironments/
+*.pyc
+__pycache__/

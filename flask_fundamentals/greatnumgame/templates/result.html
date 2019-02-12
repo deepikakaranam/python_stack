@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>game</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+            .container{
+                margin-top: 100px;
+                background-color: bisque;
+            }
+            .red{
+                background-color: red;
+                border:2px solid black;
+                width:200px;
+                height:200px;
+                
+               
+                
+            }
+            .green{
+                background-color: green;
+                border:2px solid black;
+                width:200px;
+                height:200px;
+
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        <div class=container>
+            <div class="text-primary">
+                <div class="d-flex justify-content-center">
+                    
+                    <h3>Welcome to the Great Number Game!</h3>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <medium class="text-muted">Iam thinking of a number between 1 and 100.</medium>
+                
+            </div>
+            <div class="text-success">
+                <div class="d-flex justify-content-center">
+                    
+                        <h5>Take a guess!!</h5>
+                </div>
+            </div>
+            {% if result=="Too Low" %}
+                <h3>Random number is {{session['random_num']}}, Guess number is {{session['guess']}},Result is {{session['result']}}</h3>
+                <div class="d-flex justify-content-center">
+                    <div class="red">Too Low!!</div>
+                </div>
+            {% elif result=="Too high" %}
+                <h3>Random number is {{session['random_num']}}, Guess number is {{session['guess']}},Result is {{session['result']}}</h3>
+                <div class="d-flex justify-content-center">
+                    <div class="red">Too High!!!</div>
+                </div>
+            {% elif result=="correct" %}
+                <h3>Random number is {{session['random_num']}}, Guess number is {{session['guess']}},Result is {{session['result']}}</h3>
+                <div class="d-flex justify-content-center">
+                    <div class="green">correct</div>
+                </div>
+            {% endif %}
+            <form action='/guessnum' method='post'>
+
+                <div class="d-flex justify-content-center">
+                    <div class="form-group row">
+                        <div class="col">
+                            <input type="text" class="form-control" name=guess placeholder="number">
+                        </div> 
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="form-group row">
+                        <div class="col-auto my-1">
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </div>  
+                    </div>  
+                    
+                </div> 
+                
+            </form>
+        </div>
+       
+    </body>
+</html>

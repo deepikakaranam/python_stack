@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>users assignment</title>
+    </head>
+    <body>
+           
+        <h1>USERS</h1>                       
+
+        <table border="2">
+            <tr>
+                <td>ID</td>
+                <td>Full Name</td>
+                <td>Email</td>
+                <td>Created_at</td>
+                <td>Actions</td>
+            </tr>
+
+            {% for user in users %}
+            <tr>
+                <td>{{user["id"]}}</td>
+                <td>{{user['first_name']}}{{user['last_name']}}</td>
+                <td>{{user["email"]}}</td>
+                <td>{{user['created_at']}}</td>
+                <td><a href="/{{user['id']}}" class="btn btn-default">Show</a>
+                    <a href="/{{user['id']}}/edit" class="btn btn-default">EDIT</a>
+                    <a href="/{{user['id']}}/delete" class="btn btn-default">DELETE</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+        
+        <a href="/users/create" class="btn btn-default">Add a new user</a>
+    </body>
+</html>

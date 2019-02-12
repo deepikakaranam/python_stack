@@ -1,0 +1,65 @@
+
+  <html>
+      <head>
+          <title>login</title>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      </head>
+      <body>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p>{{message}}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+            <h1>Register Here</h1>
+            <form action='/process', method='post'>
+                <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="first_name" placeholder="First name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="last_name" placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                                
+                            <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                        
+                            <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                        
+                            <input type="password" class="form-control" name="confirmpassword" id="inputPassword4" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+              </form>
+              <h1>Login Here</h1>
+              <form action='/login', method='post'>
+                <div class="row">
+                    <div class="col-md-6">
+                            
+                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                        <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+
+      </body>
+  </html>

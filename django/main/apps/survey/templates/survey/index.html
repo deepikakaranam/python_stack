@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>Dojo Survey</title>
+    
+
+</head>
+
+<body>
+    <h1>Survey Form</h1>
+    <div class=container>
+        <form action='/process/' method='post'>
+            {% csrf_token %}
+            Your Name:<input type='text' name='name'><br><br>
+            Dojo Location:<select name='location'>
+                <option value='1'>Location</option>
+                <option value='SanJose'>SanJose</option>
+                <option value='Seattle'>Seattle</option>
+            </select><br><br>
+            Favourite Languages:<select name='Languages'>
+                <option value='1'>Language</option>
+                <option value='Python'>Python</option>
+                <option value='JavaScript'>JavaScript</option>
+                <option value='c#'>c#</option>
+            </select><br><br>
+            Comment(Optional):<br><br><textarea name="description"></textarea><br><br>
+
+            <input type='submit' value='Button'>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -31,16 +31,16 @@ class Slist:
         #print(id(runner), runner.value)
         list.printValues("--before remove")
         self.head = runner.next
-        # This is sitaram code - Start
-        # if runner.value == value:
-        #     self.head = runner.next
-        # elif runner.value != value:
-        #     while runner != None:
-        #         if runner.next.value == value:
-        #             runner.next = runner.next.next
-        #             break
-        #         runner = runner.next
-        # This is sitaram code - End
+        
+        if runner.value == value:
+            self.head = runner.next
+        elif runner.value != value:
+            while runner != None:
+                if runner.next.value == value:
+                    runner.next = runner.next.next
+                    break
+                runner = runner.next
+        
         #print(id(self.head), self.head.value)
         list.printValues("--After reomve")
         # while runner != None:

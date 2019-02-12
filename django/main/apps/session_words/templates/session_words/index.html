@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>session_words</title>
+        <style>
+            .red{
+                color:red;
+                font-size:1em;
+            }
+            .black{
+                color:black;
+                font-size:1em;
+            }
+            .green{
+                color:green;
+                font-size:1em;
+            }
+            .blue{
+                color:blue;
+                font-size:1em;
+            }
+            .redbig{
+                color:red;
+                font-size:3em;
+            }
+            .blackbig{
+                color:black;
+                font-size:3em;
+            }
+            .greenbig{
+                color:green;
+                font-size:3em;
+            }
+            .bluebig{
+                color:blue;
+                font-size:3em;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>Add a new word</h1>
+        <div class="container">
+            <form action="/add/" method="post">
+                {% csrf_token %}
+                <input type="text" name="word"><br>
+                <label for="color">Choose color</label><br>
+                <input type="hidden" name="color" value="black">
+                Red<input type="radio" name="color" value="red">
+                Green<input type="radio" name="color" value="green">
+                Blue<input type="radio" name="color" value="blue"><br>
+                <label for="big">show in BIG fonts!</label>
+                <input type="hidden" name="big_font" value="0">
+                <input type="checkbox" name="big_font" value="1"><br>
+                <input type="submit" value="Add to Session">
+            </form>
+            
+            
+        </div>
+        <div class="box">
+            <h1>Submitted Words</h1>
+            <a href="/clear">Clear Session</a>
+            {% for words in request.session.words %}
+                <p><span class="{{words.wclass}}">{{words.word}}</span>--added on {{words.time}}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>

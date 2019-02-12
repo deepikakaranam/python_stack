@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>users assignment</title>
+    </head>
+    <body>
+            {{users}}
+        <h1>EDIT USER {{users['id']}}</h1>
+        <form action='/{{users['id']}}/update' method='post'>
+            <label for="first_name">First Name</label>
+            <input id="first_name" name="first_name" type="text" value="{{users['first_name']}}">
+            <label for="last_name">Last Name</label>
+            <input id="last_name" name="last_name" type="text" value="{{users['last_name']}}">
+            <label for="email">EMAIl</label>
+            <input id="email" name="email" type="email" value="{{users['email']}}">
+            <input type= "submit" value="Edit USER">
+            <a href="/" class="btn btn-default">Go Back</a>
+            <a href="/{{users['id']}}" class="btn btn-default">Show</a>
+
+        </form>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>wall</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+            
+            .header.h1{
+                display:inline;
+                color: red;
+
+            }
+            .header.h2{
+                display:inline;
+                color: blue;
+
+            }
+        </style>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p>{{message}}</p>
+              {% endfor %}
+            {% endif %}
+        {% endwith %}
+       <div class="header">
+           <h1>Welcome to simple wall</h1>
+           <h2>Welcome {{session['user_name']}}</h2>
+           <a href="/logout" class="btn btn-default">logout</a>
+       </div>
+       <div class="container">
+           <h3>Create a message on this wall</h3>
+            <form action="/message" method='post'>
+                Comment:<br><br><textarea name="description"></textarea><br><br>
+                <button type="submit" class="btn btn-primary">Add message</button>
+            </form>
+            
+            {% for message in messages %}
+                <h5>{{message['firstname']}} {{message['date']}}</h5>
+                <p>{{message['message']}}</p>
+                {% for comment in comments %}
+                   {% if comment['message_id']==message['message_id'] %}
+                    
+                    {{comment['comment']}}
+                    {% endif %}
+                    
+
+                {% endfor %}
+                
+            
+                <form action='/comment/{{message['message_id']}}' method='post'>
+                    <textarea name="comment"></textarea><br><br>
+                    <button type="submit" class="btn btn-primary">comment</button>
+                </form>
+            {% endfor %}
+            
+                
+            
+            
+            
+            
+       </div>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Survey Form</title>
+    </head>
+    <body>
+        <h1>Thanks for submitting this form! You have submitted this form {{request.session.tries}}</h1>
+        <h1>Submitted Information</h1>
+        <p>Name:{{request.session.name}}</p>
+        <p>Dojo Location:{{request.POST.location}}</p>
+        <p>Favourite Language:{{request.POST.Languages}}</p>
+        <p>comment:{{request.POST.description}}</p>
+        <a href="/">Go Back</a>
+    </body>
+</html>

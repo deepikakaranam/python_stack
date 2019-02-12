@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Ninja Gold</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+            .container{
+                border:2px solid black;
+                background-color: blanchedalmond;
+            }
+            .red{
+                color:red;
+            }
+            .green{
+                color:green;
+            }
+            .activities{
+                width:800px;
+                border:2px solid red;
+                overflow: auto;
+            }
+            h1{
+                margin-left:300px;
+                display:inline-block;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Ninja Gold Game</h1>
+            {% if session['gold'] %}
+                <div class="gold">Gold: {{session['gold']}}</div>
+            {% endif %}
+            <div class="row">
+               
+                <div class="col">
+                    
+                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                       
+                        <div class="card-header">Farm</div>
+                        <div class="card-body">
+                       
+                        <p class="card-text">(earn 10-20 golds.)</p>
+             
+                        <form action="/process_money" method="post">
+                            <input type="hidden" name="building" value="farm" />
+                            <input type="submit" value="Find Gold!"/>
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Cave</div>
+                        <div class="card-body">
+                        
+                        <p class="card-text">(earn 5-10 golds.)</p>
+                        <form action="/process_money" method="post">
+                            <input type="hidden" name="building" value="cave" />
+                            <input type="submit" value="Find Gold!"/>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                        <div class="card-header">House</div>
+                        <div class="card-body">
+                       
+                        <p class="card-text">(earn 2-5 golds.)</p>
+                        <form action="/process_money" method="post">
+                            <input type="hidden" name="building" value="house" />
+                            <input type="submit" value="Find Gold!"/>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Casino</div>
+                        <div class="card-body">
+                       
+                        <p class="card-text">(earns/takes 0-50 golds.)</p>
+                        <form action="/process_money" method="post">
+                            <input type="hidden" name="building" value="casino" />
+                            <input type="submit" value="Find Gold!"/>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+            <div class="activities">
+                {% for activity in session['activities'] %}
+                
+                    <p class="{{ activity['class'] }}"> {{ activity['content'] }} </p>
+                {% endfor %}
+            </div>   
+        </div>
+            
+            
+    </body>
+</html>

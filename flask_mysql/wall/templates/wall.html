@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>wall</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+            
+            .header.h1{
+                display:inline;
+                color: red;
+
+            }
+            .header.h2{
+                display:inline;
+                color: blue;
+
+            }
+        </style>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p>{{message}}</p>
+              {% endfor %}
+            {% endif %}
+        {% endwith %}
+       <div class="header">
+           <h1>Welcome to simple wall</h1>
+           <h2>Welcome {{session['user_name']}}</h2>
+           <a href="/logout" class="btn btn-default">logout</a>
+       </div>
+       <div class="container">
+           <h4>Send a message</h4>
+           
+           {% for sender in senders %}
+           <h5>You have sent {{sender['count']}} messages</h5>
+           {% endfor %}
+           
+           {% for user in users %}
+             <form action="/create_message" method='post'>
+                    
+                {{user['first_name']}}:<textarea name="comment" ></textarea><br><br>
+                <input type="hidden" name="receiver_id" value="{{user['id']}}">
+                <button type="submit" class="btn btn-primary">send</button>
+                
+            </form>
+            {% endfor %}
+       </div>
+       <div class="container">
+           
+           
+            <h3>messages for you {{session['user_name']}}</h3>
+            {% for sender in senders %}
+            <h5>{{sender['name']}} said {{sender['time']}}:</h5>
+            {{sender['message']}}
+            <a href="/{{sender['name']}}/delete" class="btn btn-default">DELETE</a>
+            {%endfor %}
+        </div>
+        {{sent}}
+
+       
+        
+       
+             
+      
+            
+           
+                
+            
+               
+            
+            
+            
+            
+      
+        
+        
+    </body>
+</html>

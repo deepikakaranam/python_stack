@@ -1,0 +1,70 @@
+<html>
+
+        <head>
+            <title>Dojo Survey</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+            <style>
+                .container{
+                    background-color: aqua;
+                    border:2px solid red;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class="mx-auto" style="width: 400px;">
+                       
+                        
+                <div class=container>
+                    <h1>Dojo Survey</h1>
+                        
+                    
+                    <form action='/result' method='post'>
+                    
+                        <div class="form-row">
+                            <div class="col">
+                            <input type="text" class="form-control" name=name placeholder="First name">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Locations</label>
+                            <select class="form-control" name="location" place holder="Location" id="exampleFormControlSelect1">
+                                <option></option>
+                                <option>SanJose</option>
+                                <option>Seattle</option>
+                                <option>Chicago</option>
+                                <option>Boston</option>
+                                
+                            </select>
+                        </div> 
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Languages</label>
+                            <select class="form-control" name="languages" id="exampleFormControlSelect1">
+                                <option></option>
+                                <option>Python</option>
+                                <option>SQL</option>
+                                <option>JavaScript</option>
+                                <option>C#</option>
+                                <option>Mean</option>
+                            </select>
+                        </div>    
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Comments(Optional):</label>
+                            <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <input type='submit' value='Button'>
+                    </form>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                        
+                </div>
+            </div>
+        </body>
+        
+        </html>

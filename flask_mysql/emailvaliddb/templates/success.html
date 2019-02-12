@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Email validation</title>
+    </head>
+    <body>
+        
+        <h1>The email address you entered is a VALID email address! Thank You!</h1>
+        <h3>Email addresses entered:</h3>
+        {% for x in newemail %}
+        
+
+            {{x['email']}} , {{x['created_at']}} 
+            <form action='/delete',method='delete'></form>
+            <a href="/delete" class="btn btn-default">delete</a>
+            </form> 
+        {% endfor %}
+        <a href="/" class="btn btn-default">Go back</a>
+        </form>
+    </body>
+</html>

@@ -4,7 +4,14 @@
     </head>
     <body>
         <h1>Edit User</h1>
-        <form action="{{user.id}}/update/" method="post">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/{{user.id}}/update/" method="post">
             {% csrf_token %}
         
             <div class="row">
@@ -24,6 +31,8 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{users.id}}/show">Show</a>
+            <a href="/users">Go Back</a>
         </form>
     </body>
     

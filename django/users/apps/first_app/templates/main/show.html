@@ -1,1 +1,14 @@
-<h1>{{users}}</h1>
+
+<html>
+    <head>
+        <title>show page</title>
+    </head>
+    <body>
+        <h1>User {{users.id}}</h1>
+        <p>Full Name:{{users.first_name}}" "{{users.last_name}}</p>
+        <p>Email:{{users.email}}</p>
+        <p>Created_at: {{users.created_at}}</p>
+        <a href="{{users.id}}/edit">Edit</a>
+        <a href="{{users.id}}/delete">Delete</a>
+    </body>
+</html>

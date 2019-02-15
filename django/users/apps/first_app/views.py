@@ -23,17 +23,29 @@ def create(request):
         
     return redirect('/users')
 def edit(request,id):
-    print(request.POST)
+    
     return render(request,"main/edit.html",{"user":User.objects.get(id = id)})
 def update(request,id):
     errors = User.objects.validate(request.POST)
     if errors:
         for error in errors:
             messages.error(request,error)
-        return redirect('<id>/edit')   
-       
-    return redirect('/users')
+            return redirect('/edit')   
+    else:
+        user = User.objects.get(id = id)
+        user.first_name = request.POST['first_name']
+        user.last_name = request.POST['last_name']
+        user.email = request.POST['email']
+        user.save()
+        
+        # redirect to a success route
+        return redirect('/users')  
+    
     
 
 def show(request,id):
     return render(request,"main/show.html",{"users":User.objects.get(id=id)})
+def destroy(request,id):
+    user = User.objects.get(id = id)
+    user.delete()
+    return redirect('/users')

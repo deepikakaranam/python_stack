@@ -23,14 +23,7 @@ class UserManager(models.Manager):
             last_name=form_data['last_name'],
             email=form_data['email']
         )
-    def edit_user(self, form_data):
-        self.user = User.objects.get(id=id)
-        self.user.first_name=form_data['first_name'],
-        self.user.last_name=form_data['last_name'],
-        self.user.email=form_data['email'],
-        self.user.save()
-        return self.user
-
+    
 class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)

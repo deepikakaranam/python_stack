@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>USERS</title>
+    </head>
+    <body>
+        <h1>Users</h1>
+        <table border=2>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>Created_at</th>
+                <th>Actions</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                
+                <td>{{user.id}}</td>
+                <td>{{user.first_name}}{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td><a href="{{user.id}}/edit">Edit</a><a href="{{user.id}}/show">Upload</a>/delete</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/new">Add New user</a>
+    </body>
+</html>

@@ -8,7 +8,8 @@
         <p>Full Name:{{users.first_name}}" "{{users.last_name}}</p>
         <p>Email:{{users.email}}</p>
         <p>Created_at: {{users.created_at}}</p>
-        <a href="{{users.id}}/edit">Edit</a>
-        <a href="{{users.id}}/delete">Delete</a>
+        <a href="/{{users.id}}/edit">Edit</a>
+        <a href="/{{users.id}}/delete">Delete</a>
+        <a href="/users" class="btn btn-default">Go Back</a>
     </body>
 </html>

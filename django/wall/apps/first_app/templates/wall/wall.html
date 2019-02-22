@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>wall</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+            
+            .header.h1{
+                display:inline;
+                color: red;
+
+            }
+            .header.h2{
+                display:inline;
+                color: blue;
+
+            }
+        </style>
+    </head>
+    <body>
+        
+       <div class="header">
+           <h1>Welcome to simple wall</h1>
+           <h2>Welcome {{user.first_name}}</h2>
+           <a href="/logout" class="btn btn-default">logout</a>
+       </div>
+       <div class="container">
+           <h3>Create a message on this wall</h3>
+            <form action="/message/" method='post'>
+                {% csrf_token %}
+                
+                Comment:<br><br><textarea name="description"></textarea><br><br>
+                <button type="submit" class="btn btn-primary">Add message</button>
+            </form>
+            
+            
+            
+            {% for message in messages %}
+                <h3>{{message.messager.first_name}}, {{message.messager.created_at}}</h3>
+                <p>{{message.message}}</p>
+                {% for comment in comments %}
+                     <!-- <h1> {{comment.creator.first_name}}</h1>    -->
+                    <p> {{comment.posts.content}}</p>
+                           
+                    
+                {% endfor %}
+                    
+                <form action='/{{message.id}}/comment/' method='post'>
+                    {% csrf_token %}
+                    <input type="hidden" name="message_id" value={{message.id}}>
+                    <textarea name="comment"></textarea><br><br>
+                    <button type="submit" class="btn btn-primary">comment</button>
+                    {{comments}}
+                </form>
+                
+                        
+
+            {% endfor %}
+                
+
+           
+            
+                
+            
+            
+            
+            
+       </div>
+        
+        
+    </body>
+</html>

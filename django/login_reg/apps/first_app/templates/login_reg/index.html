@@ -1,0 +1,67 @@
+
+<html>
+    <head>
+        <title>login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    </head>
+    <body>
+        {{user_list}}   
+        <h1>Register Here</h1>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/process/" method = 'post'>
+            {% csrf_token %}
+        
+            <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="first_name" placeholder="First name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="last_name" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                            
+                        <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                    
+                        <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                    </div>
+                </div>
+                
+                    
+                <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
+        
+        <h1>Login Here</h1>
+        <form action="/login/" method = 'post'>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                        
+                <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    
+                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+       
+
+    </body>
+</html>

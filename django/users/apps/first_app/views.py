@@ -19,8 +19,6 @@ def create(request):
         return redirect('/new')
     user_list= User.objects.create_user(request.POST)
     print(user_list)
-    
-        
     return redirect('/users')
 def edit(request,id):
     

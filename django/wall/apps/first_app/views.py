@@ -28,8 +28,7 @@ def login(request):
     request.session['user_id'] = result
     return redirect('/wall')
 def wall(request):
-    print("@"*100,request.session['message_id'])
-
+    
     context={
         "user" :  User.objects.get(id=request.session['user_id']),
         "messages": Message.objects.all(),
@@ -50,12 +49,13 @@ def message(request):
     
     print("message list is", message_list)
     return redirect('/wall')
-def comment(request,message_id):
+def comment(request,id):
     print(request.POST)
     print("-"*100,request.POST['message_id'])
     request.session['message_id'] = request.POST['message_id']
-    print("@"*100,request.session['message_id'])
-    comment_list= Comment.objects.create_comment(request.POST,request.session['user_id'])
+    # print("@"*100,request.session['message_id'])
+    comment_list= Comment.objects.create_comment(request.POST,request.session['user_id'],request.POST['message_id'])
+    # comment_list=Comment.objects.get(id=id)
     print("comment",comment_list)
     return redirect('/wall')
 def logout(request):

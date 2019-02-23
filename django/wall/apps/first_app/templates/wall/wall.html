@@ -37,10 +37,12 @@
             {% for message in messages %}
                 <h3>{{message.messager.first_name}}, {{message.messager.created_at}}</h3>
                 <p>{{message.message}}</p>
-                {% for comment in comments %}
-                     <!-- <h1> {{comment.creator.first_name}}</h1>    -->
-                    <p> {{comment.posts.content}}</p>
-                           
+                {% for comment in message.comments.all %}
+                    
+                    
+                    <h5>{{comment.creator.first_name}}, {{comment.creator.created_at}}</h5>    
+                    <p> {{comment.comment}}</p>
+                    
                     
                 {% endfor %}
                     
@@ -49,7 +51,7 @@
                     <input type="hidden" name="message_id" value={{message.id}}>
                     <textarea name="comment"></textarea><br><br>
                     <button type="submit" class="btn btn-primary">comment</button>
-                    {{comments}}
+                    
                 </form>
                 
                         

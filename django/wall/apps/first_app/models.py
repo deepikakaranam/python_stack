@@ -55,13 +55,13 @@ class UserManager(models.Manager):
     def create_comment(self,form_data,user_id,message_id):
         print("this is comment form_data", form_data)
         user = User.objects.get(id=user_id)
-        comment = Comment.objects.get(id=message_id)
+        comments = Message.objects.get(id=form_data['message_id'])
         
                
         new_comment = Comment.objects.create(
             comment= form_data['comment'],
-            creater= user,
-            post= comment
+            creator= user,
+            post= comments
         )
         print('*'* 30, new_comment)
         return new_comment
@@ -85,7 +85,7 @@ class Message(models.Model):
 
 class Comment(models.Model):
     comment = models.TextField()
-    creator = models.ForeignKey(User,related_name="comments")
+    creator = models.ForeignKey(User,related_name="user")
     post = models.ForeignKey(Message,related_name="comments")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

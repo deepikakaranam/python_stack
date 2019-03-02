@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet", href="{% static 'exam/styles/style.css' %}">
+</head>
+<body>
+    <h1>Welcome {{user.first_name}}</h1>
+    <a href="/logout" class="btn btn-default">logout</a>
+    <a href="/add_job" class="btn btn-default">Add a Job</a>
+    
+    <div class="container1">   
+        <table border=2>
+            <tr>
+                <th>Job</th>
+                <th>Location</th>
+                <th>Action</th>
+                
+            </tr>
+            {% for job in jobs %}
+            <tr>
+               
+                <td>{{job.title}}</td>
+                <td>{{job.location}}</td>
+                <td><a href="/{{job.id}}/add" class="btn btn-default">Add</a>
+                <a href="/{{job.id}}/view_job" class="btn btn-default">view</a>
+                
+                {% if job.user.id == request.session.user_id %}
+               
+                <a href="/{{job.id}}/edit_job" class="btn btn-default">edit</a>
+                <a href="/{{job.id}}/delete_job" class="btn btn-default">cancel</a></td>
+                {% endif %}   
+            </tr>
+            {% endfor %}
+                
+           
+            
+        </table>
+    </div> 
+    
+    <div class="container1">  
+        
+        <table border=2>
+            <tr>
+                <th>MY jobs</th>
+                
+            </tr>
+            {% for user_job in user_jobs %}
+            <tr>
+                <td>{{user_job.title}}</td>
+                <td> <a href="/{{job.id}}/view_job" class="btn btn-default">view</a>
+                    <a href="/{{user_job.id}}/delete_job" class="btn btn-default">done</a></td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>  
+</html>

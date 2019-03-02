@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'users/styles/style.css' %}">
+    </head>
+    <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="{% url 'users:process' %}" method = 'post'>
+            {% csrf_token %}
+        
+            <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="first_name" placeholder="First name">
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="last_name" placeholder="Last name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                        
+                    <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                
+                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                
+                    <input type="password" class="form-control" name="confirm_password" id="inputPassword4" placeholder="confirm">
+                </div>
+            </div>
+                
+            <button type="submit" class="btn btn-primary">Sign up</button>
+
+        </form>
+        <a href="{% url 'users:signin' %}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Already have an account? Sign in</a>
+
+
+    </body>
+</html>
+
+
+

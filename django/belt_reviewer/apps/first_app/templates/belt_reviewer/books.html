@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet", href="{% static 'belt_reviewer/styles/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Welcome,{{user.first_name}} </span>
+        <a class="nav-link" href="{% url 'users:create' %}">Add Book and Review</a>
+        <a class="nav-link" href="{% url 'users:logout' %}">logout</a>
+    </nav>
+    <div class="container1">
+    <h5>Recent Book Reviews:</h5>
+    {% for book in books %}
+    <h1><a href="/show/" value="{{book.book_id}}">{{book.book_name}}</a></h1>
+    <p>Rating</p>
+    <p>{{book.book_name}} says: blah blah blah</p>
+    <p>Posted on {{book.created_at}}</p>
+    {% endfor %}
+    </div>
+    <div class="container1">
+        <div class="box">
+            <h5>Other Books with Reviews:</h5>
+            <ul>
+                {% for book in books %}
+                <li>{{book.book_name}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -35,6 +35,7 @@ class UserManager(models.Manager):
         print(form_data)
         errors = []
         existing_users = User.objects.filter(email=form_data['email'])
+        print (existing_users)
         if not existing_users:
             return(False, "Email or password invalid")
         user = existing_users[0]

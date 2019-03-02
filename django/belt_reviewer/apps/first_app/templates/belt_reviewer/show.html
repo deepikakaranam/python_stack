@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet", href="{% static 'belt_reviewer/styles/style.css' %}">
+</head>
+<body>
+    <div class="links">
+        <a class="nav-link" href="{% url 'users:books' %}">Home</a> 
+        <a class="nav-link" href="{% url 'users:logout' %}">Logout</a> 
+    </div>
+    <h1>{{book.book_name}}</h1>
+    <p>{{book.author}}</p>
+    <h1>Reviews</h1>
+    <div class="reviews">
+        {% for review in book.book_reviews.all %}
+        <p>Rating:{{review.rating}}</p>
+        <p>{{book.book_review.first_name}} says:{{review.review}}</p>
+        <p>Posted on{{review.created_at}}</p>{% endfor %}
+    </div>
+    <div class="box1">
+        <form action="/create_book/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="book_name" value={{book.book_name}}>
+            <input type="hidden" name="author_first" value={{book.author}}>
+            <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="exampleFormControlTextarea1">Review</label>
+                    <textarea class="form-control" name="review" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+               
+            <div class="form-group col-md-2">
+                <label for="stars">Rating</label>
+                <select id="stars" name="stars" class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.container{
+    border:2px solid black;
+    background-color: cornsilk;
+}
+
+
+.register{
+    display:inline-block;
+    width:450px;
+    vertical-align: top;
+}
+.login{
+    display:inline-block;
+    width:450px;
+    vertical-align: top;
+}
+.messages{
+    color:red;
+}
+ .navbar-light bg-light.nav-link{
+    -webkit-justify-content: flex-end;
+}
+.container1{
+    display:inline-block;
+    width: 600px;
+    padding:50px;
+}
+.container1.h5{
+    margin-top: 50px;
+    padding: 20px;
+}
+.container1.box{
+    border:2px solid black;
+}
+.reviews{
+    display:inline-block;
+    width: 400px;
+    padding:20px;
+    vertical-align: top;
+} 
+.box1{
+    display:inline-block;
+    width: 400px;
+    padding:20px;
+    vertical-align: top;
+    
+}
+.links{
+    float: right;
+}
+.reviews{
+    border:2px solid black;
+}

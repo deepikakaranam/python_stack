@@ -1,0 +1,24 @@
+.container{
+    border:2px solid black;
+    background-color: cornsilk;
+}
+
+
+.register{
+    display:inline-block;
+    width:450px;
+    vertical-align: top;
+}
+.login{
+    display:inline-block;
+    width:450px;
+    vertical-align: top;
+}
+.messages{
+    color:red;
+}
+.container1{
+    
+    widows: 200px;
+    
+}

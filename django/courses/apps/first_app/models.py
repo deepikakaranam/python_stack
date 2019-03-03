@@ -21,9 +21,7 @@ class CourseManager(models.Manager):
         
 class Course(models.Model):
     name = models.CharField(max_length=255)
-    desc = models.OneToOneField(Detail)
+    desc = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = CourseManager()
-class Detail(models.Model):
-    desc = models.TextField()
